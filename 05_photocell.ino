@@ -11,9 +11,10 @@ void photocell()
   photocellIndex = photocellIndex + 1;                          // increment index
   if(photocellIndex > 49) photocellIndex = 0;                   // constrain index
   photocellAverage = photocellSum / 50;                         // compute average over the 50 samples
+  photoDiff = photocellReading - photocellAverage;
 
   // if LED is on, set the flag, else clear it
-  if (photocellReading > (photocellAverage+LIGHT_THRESHOLD))
+  if (abs(photoDiff) > LIGHT_THRESHOLD)
   {
     LEDon = true;
   }
@@ -118,15 +119,19 @@ void photocell()
   //debug print statements
   // Serial.print(photocellReading);
   // Serial.print(" ");
- //  Serial.print(photocellAverage);
+  // Serial.print(photocellAverage);
   // Serial.print(" ");
+  Serial.print(abs(photoDiff));
+  Serial.println(" ");
+  
+  // Serial.print(photocellAverage);
   // Serial.print(onTime);
-  // Serial.print(" ");
+  //Serial.print(" ");
   // Serial.print(offTime);
   // Serial.print(" ");
   // Serial.print(LEDon);
   // Serial.print(" ");
   // Serial.print(blankDisplay);
   // Serial.print(" ");
-   //Serial.println(State);
+  // Serial.println(State);
 }

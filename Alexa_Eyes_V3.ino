@@ -59,7 +59,7 @@
 #define DISPLAY_TIMEOUT 15            // display and LED timeout values in seconds
 #define LED_OFF_TIMEOUT 3
 
-#define LIGHT_THRESHOLD 200           // Alexa photocell light detection threshold
+#define LIGHT_THRESHOLD 30           // Alexa photocell light detection threshold
 
 const uint8_t ease[] =                // eye animation movement curve
 {
@@ -97,9 +97,10 @@ uint8_t  blankDisplay;
 
 uint32_t photocellReading;                    // photocell variables
 uint32_t photocellIndex;
-uint32_t photocellArray[50];
+uint32_t photocellArray[5/0];
 uint32_t photocellSum;
 uint32_t photocellAverage;
+int photoDiff;
 
 uint32_t timeOfLastBlink = 0L;                // blink variables
 uint32_t timeToNextBlink = 0L;
